@@ -921,25 +921,25 @@ L.V.
 				
 				<section>
 					<h3>Exercice</h3>
-					<h4>On récapitule tout</h4>
+					<h4>On récapitule tout dans un <span class="hightlight">Memento</span></h4>
 					
 					<ol>
-						<li><span class="hightlight">Créez</span> un nouveau projet</li>
-						<li><span class="hightlight">Ajoutez</span> un fichier Readme.txt
+						<li><span class="hightlight">Créez</span> un nouveau projet qui s'appelle : memento</li>
+						<li><span class="hightlight">Ajoutez</span> un fichier readme.txt
 							<ul class="puce2">
 								<li>Ajoutez une entrée dans l'historique</li>
 							</ul>	
 						</li>
 						<li><span class="hightlight">Modifiez</span> le fichier
 							<ul class="puce2">
-								<li>Notez quelques commandes de base de git</li>
-								<li>Ajoutez une entrée dans l'historique</li>
+								<li>Notez quelques commandes de base de git dans le fichier texte</li>
+								<li>Ajoutez une entrée dans l'historique du projet</li>
 							</ul>	
 						</li>
-						<li><span class="hightlight">Créez</span> une version html du readme
+						<li><span class="hightlight">Créez</span> une version html du readme.txt
 							<ul class="puce2">
 								<li>Utilisez une nouvelle branche</li>
-								<li>Ajoutez des entrées dans l'historique</li>
+								<li>Ajoutez des entrées dans l'historique du projet</li>
 							</ul>	
 						</li>
 						<li><span class="hightlight">Fusionnez</span> le tout dans la branche master
@@ -1057,7 +1057,7 @@ L.V.
 						
 						<ol>
 							<li><span class="hightlight">Créez</span> un nouveau repository public</li>
-							<li><span class="hightlight">Enregistrer</span>-y le projet précédent</li>
+							<li><span class="hightlight">Enregistrer</span>-y le projet memento de l'exercice précédent</li>
 							<li><span class="hightlight">Récupérer</span> le projet d'un autre développeur</li>
 						</ol>
 						
@@ -1150,41 +1150,15 @@ L.V.
 						<h4>Echanger des modifications avec un autre</h4>
 						
 						<ol>
-							<li><span class="hightlight">Ajouter</span> une commande dans le readme du projet récupéré</li>
-							<li><span class="hightlight">Envoyer</span> la modification sur le repository public</li>
+							<li><span class="hightlight">Ajoutez</span> une commande dans le readme du projet récupéré</li>
+							<li><span class="hightlight">Envoyez</span> la modification sur le repository public</li>
+							<li><span class="hightlight">Récupérez</span> les modifications d'autres développeurs</li>
 						</ol>
 						
 					</section>
 					
 				</section>
-				
-				<section>
-					<h3>Pour aller plus loin</h3>
-					<h4>D'autres commandes pour les utilisateurs avancés</h4>			
-					<div style="text-align: left;">
-						<ul>
-							<li>Étiqueter un certain état dans l'historique (Tagger une version)
-								<ul class="puce2">
-									<li><code>$&nbsp;git tag&nbsp;</code></li>
-								</ul>
-								<br />
-							</li>
-							<li>Garder un historique linéraire
-								<ul class="puce2">
-									<li><code>$&nbsp;git rebase&nbsp;</code></li>
-								</ul>
-								<br />
-							</li>
-							<li>Sélectionner un commit précis à merger
-								<ul class="puce2">
-									<li><code>$&nbsp;git cherry-pick&nbsp;</code></li>
-								</ul>
-								<br />
-							</li>
-						</ul>
-					</div>
-				</section>
-				
+							
 				<section>
 					<h3>GIT, Les workflows standards</h3>
 				</section>
@@ -1220,7 +1194,7 @@ L.V.
 						<ol>
 							<li><span class="hightlight">Clonez</span> un projet commun
 								<ul class="puce2">
-									<li>Utilisez un des projets existant</li>
+									<li>Utilisez un des projets memento existant (le plus abouti)</li>
 								</ul></li>
 							<li><span class="hightlight">Faites</span> des modifications
 								<ul class="puce2">
@@ -1233,7 +1207,7 @@ L.V.
 								</ul>
 							</li>
 							
-							<li><span class="hightlight">Mettez à jour</span> le master et votre branche</li>
+							<li><span class="hightlight">Mettez à jour</span> l'ensemble des branches et le master</li>
 						</ol>
 						
 					</section>
@@ -1268,20 +1242,16 @@ L.V.
 						<h4>Integration-Manager</h4>
 						
 						<ol>
-							<li><span class="hightlight">Clonez</span> un projet commun
+							<li>À partir du projet précédent, faites des modifications :
 								<ul class="puce2">
-									<li>Utilisez un des projets existant</li>
-								</ul></li>
-							<li><span class="hightlight">Faites</span> des modifications
-								<ul class="puce2">
-									<li>Dans une branche séparée</li>
-									<li>Fusionnez avec votre branche master</li>
+									<li>Dans une <span class="hightlight">branche séparée</span></li>
+									<li><span class="hightlight">Fusionnez</span> avec votre branche master</li>
 								</ul>
 							</li>
 							<li><span class="hightlight">Créez</span> un dépôt partagé</li>
-							<li><span class="hightlight">Envoyez</span> les modifications
+							<li><span class="hightlight">Envoyez</span> les modifications sur votre dépôt
 								<ul class="puce2">
-									<li>Dans votre branche master dans votre dépôt</li>
+									<li>De la branche master dans votre dépôt</li>
 								</ul>
 							</li>
 							
@@ -1317,10 +1287,10 @@ L.V.
 
 					<section>
 						<h3>Exercice</h3>
-						<h4>Dictator and Lieutenants</h4>
+						<h4>On change de projet</h4>
 						
 						<ol>
-							<li>Dans le projet précedent : 
+							<li>Récupérer le projet qui s'appelle : <span class="hightlight">atelier</span>
 								<ul class="puce2">
 									<li>Mettez-vous <span class="hightlight">en équipe</span> : exemple style, contenu, controlleur, ...</li>
 									<li>Designez un "lieutenant" par équipe</li>
@@ -1340,7 +1310,61 @@ L.V.
 						
 					</section>
 
-				</section>				
+				</section>	
+				
+				<section>
+					<h3>Conclusion</h3>
+					<h4>Ce n'est que le début</h4>			
+					
+					<img class="normal-image" src="img/plusieurs.png" />
+
+										
+				</section>	
+				
+				<section>
+					<section>
+						<h3>Pour aller plus loin</h3>
+						<h4>D'autres commandes pour les utilisateurs avancés</h4>			
+						<div style="text-align: left;">
+							<ul>
+								<li>Étiqueter un certain état dans l'historique (Tagger une version)
+									<ul class="puce2">
+										<li><code>$&nbsp;git tag&nbsp;</code></li>
+									</ul>
+									<br />
+								</li>
+								<li>Garder un historique linéraire
+									<ul class="puce2">
+										<li><code>$&nbsp;git rebase&nbsp;</code></li>
+									</ul>
+									<br />
+								</li>
+								<li>Sélectionner un commit précis à merger
+									<ul class="puce2">
+										<li><code>$&nbsp;git cherry-pick&nbsp;</code></li>
+									</ul>
+									<br />
+								</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>GitHub</h3>
+						<h4>Le <span class="hightlight">social network</span> de GIT </h4>			
+						<div style="text-align: left;">
+							<ul>
+								<li>Large communauté</li>
+								<li>Publier du code devient vraiment simple</li>
+								<li>Éviter de réinventer la roue</li>
+								<li>Soutenir un écosystème plus vaste</li>
+							</ul>
+						</div>
+					</section>
+				</section>
+				
+				<section>
+					<h3>Il y plus qu'à coder !</h3>
+				</section>
 			</div>
 		</div>
 
