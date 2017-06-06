@@ -1,0 +1,1096 @@
+@<!doctype html>
+<html lang="fr">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Formaion GIT | Présentation</title>
+
+		<meta name="description" content="Utiliser le gestionnaire de version GIT">
+		<meta name="author" content="Laurent Vanni">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Foundation -->
+		<link rel="stylesheet" href="lib/foundation-5.0.2/css/foundation.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="css/mystyle.css">
+		
+		
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>GIT</h1>
+					<h3>Logiciel de gestion de versions décentralisé</h3>
+					<p>
+						<small>Présenter par Laurent.Vanni <a href="mailto:lvanni@unice.fr">@unice.fr</a></small>
+					</p>
+				</section>
+				
+				<section>
+					<h3>Le quotidien du développeur seul</h3>				
+					<img class="normal-image" src="img/seul.png" />
+					<div style="text-align: left;">
+						<ul>
+							<li>Mais il n'y avait pas ce bug <span class="hightlight">hier</span> ?</li>
+							<li><span class="hightlight">Pourquoi</span> j'ai fait ça moi ?</li>
+							<li>Comment je fais pour <span class="hightlight">revenir en arrière</span> ?</li>
+						</ul>
+					</div>
+				</section>
+				
+				<section>
+					<h3>Le quotidien du développeur en équipe</h3>					
+					<img class="normal-image" src="img/plusieurs.png" />
+					<div style="text-align: left;">
+						<ul>
+							<li>Est-ce que tu peux modifier <span class="hightlight">X</span> pendant que je m'occupe de <span class="hightlight">Y</span> ?</li>
+							<li>Comment on <span class="hightlight">fusionne</span> nos codes maintenant ?</li>
+							<li>...</li>
+							<li style="font-size: 38pt;">Mais <span class="hightlight">qui</span> a touché à ce fichier !?</li>
+						</ul>
+					</div>
+
+				</section>
+
+				<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+					<h2>Un gestionnaire de version</h2>
+					<h3><a onclick="$('#aquoicasert').fadeToggle();">À quoi ça sert ?</a></h3>
+					<br />
+					<div id="aquoicasert" style="text-align: left; display: none;">
+						<ul>
+							<li><span class="hightlight">Suivre</span> l’évolution d’un code source</li>
+							<li>Travailler à <span class="hightlight">plusieurs</span></li>
+						</ul>
+					</div>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Les gestionnaires de versions</h3>		
+						<h4>Petit tour d'horizon</h4>						
+						
+						<div style="text-align: left;">
+							<p>Deux types :</p>
+							<ul>
+								<li><span class="hightlight">Centralisé</span> : CSV, SVN</li>
+								<li><span class="hightlight">Distribué</span> : Mercurial, GIT, ...</li>
+							</ul>
+						</div>					
+						<br />
+						<div style="text-align: left;">
+							<p>Des fonctionnalités partagées :</p>
+							<ul>
+								<li><span class="hightlight">Commit</span>, Révision, Dépôt, Branches, ...</li>
+							</ul>
+						</div>
+					</section>
+					<section>
+						<h3>CVS</h3>		
+						<h4>Concurrent Versions System (1990)</h4>						
+						
+						<div style="text-align: left;">
+							<p>Avantages</p>
+							<ul>
+								<li>Historique : largement utilisé, exemple OpenBSD</li>
+							</ul>
+						</div>
+						<br />
+						<div style="text-align: left;">
+							<p>Défauts</p>
+							<ul>
+								<li>Mode client-serveur</li>
+								<li>Fonctionnalités limitées</li>
+								<li>Vieillissant</li>
+							</ul>
+						</div>
+	
+					</section>
+					
+					<section>
+						<h3>SVN</h3>		
+						<h4>Subversion</h4>						
+						
+						<div style="text-align: left;">
+							<p>Avantages</p>
+							<ul>
+								<li>Evolution de CVS : Plus de fonctionnalités</li>
+								<li><span class="hightlight">Large communauté</span></li>
+							</ul>
+						</div>
+						<br />
+						<div style="text-align: left;">
+							<p>Défauts</p>
+							<ul>
+								<li>Mode client-serveur</li>
+								<li>Gestion des branches : 
+									<ul class="puce2">
+										<li>Sépration d'un code de production et d'un code de développement.</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+	
+					</section>
+					
+					<section>
+						<h3>Mercurial</h3>							
+						
+						<div style="text-align: left;">
+							<p>Avantages</p>
+							<ul>
+								<li><span class="hightlight">Décentralisé</span></li>
+								<li><span class="hightlight">Simple</span> d'apprentissage</li>
+								<li>Léger et performant</li>
+							</ul>
+						</div>
+						<br />
+						<div style="text-align: left;">
+							<p>Défauts</p>
+							<ul>
+								<li>Gestion des branches intégrées au commit</li>
+								<li>Communauté en retrait</li>
+							</ul>
+						</div>
+	
+					</section>
+					
+					<section>
+						<h3>GIT</h3>		
+						<h4>Le versioning par <span class="hightlight">Linus Torvalds</span> pour <span class="hightlight">Linux</span></h4>						
+						
+						<div style="text-align: left;">
+							<p>Avantages</p>
+							<ul>
+								<li>Décentralisé</li>
+								<li>Gestion des branches</li>
+								<li>L'interface console évoluée</li>
+								<li>Les algorithmes de fusion</li>
+								<li>La rapidité</li>
+								<li>Large communauté : Des sites collaboratifs comme <span class="hightlight">GitHub</span></li>
+							</ul>
+						</div>
+						<br />
+						<div style="text-align: left;">
+							<p>Défauts</p>
+							<ul>
+								<li>La complexité
+									<ul class="puce2">
+										<li>Mais il y a des formations pour ça ;)</li>
+									</ul>
+								<li>Le portage sous Windows</li>
+							</ul>
+						</div>
+	
+					</section>
+
+				</section>
+				
+				<section>
+					<h3>C'est parti pour GIT ?</h3>
+				</section>
+
+				<section>
+					<h3>Premiers pas avec GIT</h3>		
+					<h4>Installation</h4>
+					
+					<div style="text-align: left;">
+						<p>LINUX</p>
+						<ul>
+							<li><code>$&nbsp;sudo apt-get install git-core&nbsp;</code></li>
+						</ul>
+					</div>
+					<br />					
+					<div style="text-align: left;">
+						<p>MacOS</p>
+						<ul>
+							<li>Installeur : <a href="https://git-scm.com/download/mac" target="blank" >git-osx-installer</a></li>
+						</ul>
+					</div>
+					<br />
+					<div style="text-align: left;">
+						<p>Windows</p>
+						<ul>
+							<li><a href="http://msysgit.github.io" target="blank">msysgit</a>
+								<ul class="puce2">
+									<li>Système d’émulation des commandes Unix sous Windows</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<hr />
+					<p>Test</p>
+					<code>$&nbsp;git --version&nbsp;</code>
+	
+				</section>
+				
+				<section>
+					<section>
+						<h3>Configuration</h3>		
+						<h4>Identifiez-vous</h4>
+						
+						<div style="text-align: left;">
+							<p>Votre Pseudo</p>
+							<ul>
+								<li><code>$&nbsp;git config --global user.name "pseudo"&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Votre e-mail</p>
+							<ul>
+								<li><code>$&nbsp;git config --global user.email moi@email.com&nbsp;</code></li>
+							</ul>
+						</div>
+						
+		
+					</section>
+					
+					<section>
+						<h3>Configuration</h3>		
+						<h4>Donnez des couleurs à GIT</h4>
+						<br />
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;git config --global color.ui true&nbsp;</code></li>
+								<ul class="puce2">
+									<li><code>$&nbsp;git config --global color.diff auto&nbsp;</code></li>
+									<li><code>$&nbsp;git config --global color.status auto&nbsp;</code></li>
+									<li><code>$&nbsp;git config --global color.branch auto&nbsp;</code></li>
+								</ul>
+								</li>
+							</ul>
+						</div>
+						<br />					
+						<div class="row">
+							<div class="large-6 columns">
+								<img src="img/command_line_mono.png" />
+							</div>
+							<div class="large-6 columns">
+								<img src="img/command_line_color.png" />
+							</div>
+						</div>
+		
+					</section>
+					
+					<section>
+						<h3>Configuration</h3>		
+						<h4>Gérez vos préférences</h4>
+						
+						<div style="text-align: left;">
+							<p>Votre éditeur de texte</p>
+							<ul>
+								<li><code>$&nbsp;git config --global core.editor vim&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Votre outil de différences</p>
+							<ul>
+								<li><code>$&nbsp;git config --global merge.tool vimdiff&nbsp;</code></li>
+							</ul>
+						</div>
+		
+					</section>
+					
+					<section>
+						<h3>Configuration</h3>		
+						<h4>Vérifiez vos paramètres</h4>
+						
+						<div class="row">
+							<div class="large-6 columns">
+								<p>Liste des variables configurées</p>
+								<ul>
+									<li><code>$&nbsp;git config --list&nbsp;</code></li>
+								</ul>
+								<br /><br />
+								<p>Fichier de configuration global</p>
+								<ul>
+									<li><code>$&nbsp;vi ~/.gitconfig&nbsp;</code></li>
+								</ul>
+							</div>
+							<div class="large-6 columns">
+								<img src="img/config.png" />
+							</div>
+							
+						</div>
+		
+					</section>
+				</section>
+				
+				<section>
+					<h3>On code ?</h3>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Permières commandes</h3>
+						<h4>Initialisation d'un projet</h4>
+						
+						<br />
+						<div style="text-align: left;">
+							<p>Création d'un projet/dossier : </p>
+							<ul>
+								<li><code>$&nbsp;mkdir mon_projet&nbsp;</code></li>
+								<li><code>$&nbsp;cd mon_projet&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>initialisation d'un dépôt GIT  : </p>
+							<ul>
+								<li><code>$&nbsp;git init&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Et voilà </p>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Permières commandes</h3>
+						<h4>l'État de mon projet</h4>
+						
+						<br />
+						<div style="text-align: left;">
+							<p>Statut : </p>
+							<ul>
+								<li><code>$&nbsp;git status&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>L'historique  : </p>
+							<ul>
+								<li><code>$&nbsp;git log&nbsp;</code></li>
+								<li><code>$&nbsp;git log -p&nbsp;</code></li>
+							</ul>
+						</div>
+						<hr />
+						Pour l'instant c'est vide...
+					</section>
+					
+					<section>
+						<h3>Ajoutons des fichiers</h3>
+						<h4>Exemple d'un projet web</h4>
+						
+						<br />
+						<div style="text-align: left;">
+							<p>index.html : </p>
+							<textarea style="height: 210px;">
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Insert title here</title>
+			<link rel="stylesheet" href="style.css" />
+		</head>
+	<body>
+		<h1>Hello tout le monde</h1>
+	</body>
+</html></textarea>
+							<p>style.css : </p>
+							<input type="text" value="h1{ color: red; }" />
+						</div>
+					</section>
+					
+					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+						<h3>Permières commandes</h3>
+						<h4>Quel est l'<a onclick="$('#status').fadeToggle();">état de mon projet</a> maintenant ?</h4>
+						<br /><br /><br /><br />
+						<div id="status" style="display: none; text-align: left; position: relative; top: -4em;" class="row">
+							<div class="large-4 columns">
+								<ul>
+									<li><code>$&nbsp;git status&nbsp;</code>
+										<ul class="puce2">
+											<li>Branche master</li>
+											<li>Commit initial</li>
+											<li>Fichiers non surveillés</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/status.png" />
+							</div>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Permières commandes</h3>
+						<h4>Ajoutons les fichiers à GIT</h4>
+						
+						<br />
+						<div style="text-align: left;">
+							<p>Dire à GIT de prendre en compte ces nouveaux fichiers: </p>
+							<ul>
+								<li><code>$&nbsp;git add .&nbsp;</code>
+									<ul class="puce2">
+										<li>Ou : <code>$&nbsp;git add *&nbsp;</code></li>
+										<li>Ou : <code>$&nbsp;git add index.html; git add style.css&nbsp;</code></li>
+									</ul>
+								</li>
+							</ul>
+							<ul>
+								<li>Dire à GIT d'ignorer certains fichiers avec le fichier : <span class="hightlight">.gitignore</span> :<br /><br />
+											<textarea style="height: 100px;">
+foo 		# ignorer tous les fichiers ou répertoires foo
+build  		# ignorer le répertoire build à la racine du projet
+*.py[oc] 	# ignorer tous les fichiers ayant l’extension pyo ou pyc
+temp* 		# ignorer tous les fichiers commençant par temp
+!template	# conserver le fichier template
+</textarea>
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+						<h3>Permières commandes</h3>
+						<h4>Quel est l'<a onclick="$('#status2').fadeToggle();">état de mon projet</a> maintenant ?</h4>
+						<br /><br /><br /><br />
+						<div id="status2" style="display: none; text-align: left; position: relative; top: -4em;" class="row">
+							<div class="large-4 columns">
+								<ul>
+									<li><code>$&nbsp;git status&nbsp;</code>
+										<ul class="puce2">
+											<li>Branche master</li>
+											<li>Commit initial</li>
+											<li>2 nouveaux fichiers</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/status2.png" />
+							</div>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Mon premier commit</h3>
+						<h4>Bonnes pratiques</h4>
+						
+						<br />
+						<div  style="text-align: left;">
+							<p>Commit rapide : </p>
+							<ul>
+								<li><code>$&nbsp;git commit -a -m "mon premier commit"&nbsp;</code>
+									<ul class="puce2">
+										<li>-a : Toutes les modifications</li>
+										<li>-m : le message du commit</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<br />
+						<div class="row" style="text-align: left;">
+							<div class="large-6 columns">
+								<p>Commit pro : </p>
+								<ul>
+									<li><code>$&nbsp;git commit -a&nbsp;</code>
+										<ul class="puce2">
+											<li>Utilisation d'un éditeur de texte</li>
+											<li>Definir des mots-clés dans le message, exemple : NEW, UPDATE, FIX, TODO, ...</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-6 columns">
+
+											<textarea style="height: 250px;">
+NEW: First commit, new files added
+L.V.
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   index.html
+#       new file:   style.css
+#
+</textarea>
+							</div>
+						</div>
+					</section>
+					
+					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+						<h3>Permières commandes</h3>
+						<h4>Quel est l'<a onclick="$('.status3').fadeToggle();">état de mon projet</a> maintenant ?</h4>
+						<br /><br /><br /><br /><br /><br />
+						<div style="display: none; text-align: left; position: relative; top: -6em;" class="row status3">
+							<div class="large-4 columns">
+								<ul>
+									<li><code>$&nbsp;git status&nbsp;</code>
+										<ul class="puce2">
+											<li>Plus rien à commiter</li>
+											<li>Projet clean</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/status3.png" />
+							</div>
+							
+						</div>
+						
+						<div style="display: none; text-align: left; position: relative; top: -5em;" class="status3">
+							<div class="large-4 columns">
+								<ul>
+								<li><code>$&nbsp;git log&nbsp;</code>
+									<ul class="puce2">
+										<li>1er entrée dans l'historique</li>
+										<li>Projet clean</li>
+									</ul>
+								</li>
+							</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/log.png" />
+							</div>
+							
+						</div>
+						
+					</section>
+					
+				</section>
+				
+				<section>
+					<h3>Le quotidien du développeur seul</h3>
+					<h4>Ça s'améliore...</h4>
+					<img class="normal-image" src="img/seul.png" />
+					<div style="text-align: left;">
+						<ul>
+							<li>Suivre l’évolution d’un code source : <img class="icon" src="img/check.png" /></li>
+							<li>Et comment je fais pour <span class="hightlight">revenir en arrière</span> ?</li>
+						</ul>
+					</div>
+				</section>
+				
+				
+				<section>
+					<h3>GIT et l'historique des modifications</h3>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Git : système de fichier adressables par contenu</h3>
+						<h4>Base de donnée clé/valeur</h4>
+						
+						<div style="text-align: left;">
+							<p>Le répertoire <span class="hightlight">.git/</span> (créé au moment du git init)</p>
+							<ul>
+								<li>Contient le <span class="hightlight">coeur de git</span> (config, algo, ...)</li>
+								<li>Contient la <span class="hightlight">base de donnée</span> du projet : <span class="hightlight">.git/object/</span>
+									<ul class="puce2">
+										<li><code>$ find .git/objects -type f<br />
+										.git/objects/0b/b3f40c0b55d604ce6382fd8c7fec1414488c07</code></li>
+									</ul>
+								</li>
+							</ul>
+							<br /><br />
+							<p>clé <span class="hightlight">SHA-1</span> : une somme de contrôle du contenu du fichier</p>
+							<ul>
+								<li>Représente l'état d'un contenu à un instant <i>t</i></li>
+							</ul>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>En pratique ça donne quoi ?</h3>
+						<h4>Etudions le log d'un historique</h4>
+						
+						<div class="row">
+							<div class="large-4 columns">
+								<ul>
+									<li><code>$&nbsp;git log&nbsp;</code>
+									<ul class="puce2">
+										<li>Chaque <span class="hightlight">hash</span> correspond à un état (contenu) du projet</li>
+									</ul>	
+								<ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/log2.png" />
+							</div>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Revenir en arriere dans le code </h3>
+						<h4>Les commandes de base</h4>
+						
+						<div style="text-align: left;">
+							<p>Effacer des commits de l'historique</p>
+							<ul>
+								<li><code>$&nbsp;git reset HEAD&nbsp;</code>
+									<ul class="puce2">
+										<li>HEAD : Dernier commit</li>
+										<li>HEAD^ : Avant-dernier commit</li>
+										<li>HEAD^^ ou HEAD-2 : Avant-Avant-dernier commit</li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git reset a1487727be02cb6a283a83b06b6da68&nbsp;</code>
+									<ul class="puce2">
+										<li>Numéro de commit précis </li>
+									</ul>
+								</li>
+							</ul>
+							<br /><br />
+							<p>Effacer les modifications associés : Option <span class="hightlight">--hard</span></p>
+							<ul>
+								<li><code>$&nbsp;git reset --hard HEAD&nbsp;</code></li>
+							</ul>
+						</div>
+
+						
+					</section>
+					
+					<section>
+						<h3>Exercice </h3>
+						
+						<ol>
+							<li><span class="hightlight">Ajoutons</span> des modifications à notre projet web</li>
+							<li><span class="hightlight">Revenons</span> à l'état initial</li>			
+						</ol>
+					</section>
+				</section>
+				
+		
+				<section>
+					<h3>Les branches</h3>
+					<h4>Une des pricipales raisons de passer à GIT</h4>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Pourquoi utiliser des branches</h3>
+						<h4>À quel moment j'ai besoin de créer différentes branches</h4>
+						<div style="text-align: left;">
+							<p>Travailler en <span class="hightlight">parallèle</span> sur plusieurs fonctionnalités.</p>
+							<ul>
+								<li>Une branche principale pour une version stable du code</li>
+								<li>Plusieurs branches de développement, exemple
+									<ul class="puce2">
+										<li>Interface graphiques, Controller, modèle, tmp, ...</li>
+									</ul>
+								</li>
+							</ul>
+							<br /><br />
+							<p>Donc on crée une nouvelle branche quand une modification est :</p>
+							<ul>
+								<li>Complexe</li>
+								<li>Longue (plusieurs commits)</li>
+								<li>Un test de nouvelles fonctionnalités</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Gestion des branches avec GIT</h3>
+						<h4>Les commandes de bases</h4>
+						<div class="row">
+							<div class="large-8 columns" style="text-align: left;">
+								<br />
+								<p>Voir l'état des branches</p>
+								<ul>
+									<li><code>$&nbsp;git branch&nbsp;</code>
+										<ul class="puce2">
+											<li>Pour l'instant qu'une seul branch : <span class="hightlight">master</span></li>
+										</ul>
+									</li>
+								</ul>
+								<br /><br />
+								<p>Créer une branche </p>
+								<ul>
+									<li><code>$&nbsp;git branch &#60;nom_branche&#62;&nbsp;</code>
+										<ul class="puce2">
+											<li>Nouveau noeud dans l'arborescence du projet </li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-4 columns">
+								<img src="img/branch.png" style="height: 400px;;" />
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Gestion des branches avec GIT</h3>
+						<h4>Les commandes de bases</h4>
+						<div class="row">
+							<div class="large-8 columns" style="text-align: left;">
+								<br />
+								<p>Se déplacer entre les branches</p>
+								<ul>
+									<li><code>$&nbsp;git checkout &#60;nom_branche&#62;&nbsp;</code></li>
+								</ul>
+								<br />
+								<p>Fusionner deux branches </p>
+								<ul>
+									<li><code>$&nbsp;git merge &#60;nom_branche&#62;&nbsp;</code>
+										<ul class="puce2">
+											<li>La branche viens se fusionner dans branche courrante</li>
+										</ul>
+									</li>
+								</ul>
+								<br />
+								<p>Supprimer une branche </p>
+								<ul>
+									<li><code>$&nbsp;git branch -d &#60;nom_branche&#62;&nbsp;</code>
+										<ul class="puce2">
+											<li>-D pour forcer</li>
+										</ul>
+									</li>
+								</ul>
+							</div>
+							<div class="large-4 columns">
+								<img src="img/branch2.png" style="height: 550px;" />
+							</div>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Gestion des branches avec GIT</h3>
+						<h4>Les commandes utiles</h4>
+						
+						<div style="text-align: left;">
+							<p>Mettre de côté des modifications :</p>
+							<ul>
+								<li><code>$&nbsp;git stash&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Récupérer ces modifications :</p>
+							<ul>
+								<li><code>$&nbsp;git stash apply&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Revenir à un état plus ancien temporairement :</p>
+							<ul>
+								<li><code>$&nbsp;git checkout a75ee89cd3ab6334027bc43c0cc9&nbsp;</code>
+									<ul class="puce2">
+										<li>Création d'une branche détachée et temporaire</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Exercice</h3>
+						<h4>Faisons évoluer le contenu et style de notre projet</h4>
+						
+						<div style="text-align: left;">
+							<p>En utilisant <span class="hightlight">plusieurs branches</span> :</p>
+							<ul>
+								<li>Modifiez le contenu : index.html</li>
+								<li>Modifiez le style : style.css</li>
+							</ul>
+							<br /><br />
+							<p><span class="hightlight">Fusionnez</span> le tout dans le master :</p>
+							<ul>
+								<li>Vérifiez l'état de l'historique avant et après</li>
+							</ul>
+							
+						</div>
+						
+					</section>
+					
+					<section>
+						<h3>Exercice</h3>
+						<h4>Faisons évoluer le contenu et style de notre projet</h4>
+						
+						<div style="text-align: left;">
+							<p>En utilisant plusieurs branches :</p>
+							<ul>
+								<li>Modifiez le contenu du <span class="hightlight">même fichier</span></li>
+								<li>Ajoutez des éléments nouveaux</li>
+							</ul>
+							<br /><br />
+							<p>Fusionnez le tout dans le master :</p>
+							<ul>
+								<li><span class="hightlight">Que ce passe t-il ?</span></li>
+							</ul>
+							
+						</div>
+					</section>
+					
+				</section>
+				
+				<section>	
+					<section>
+						<h3>Gestion des conflits</h3>
+						<h4><span class="hightlight">Automatique</span>, sinon manuel dans une branche virtuelle</h4>
+						
+						<div style="text-align: left;">
+							<p>Git gère ça pour vous :</p>
+							<ul>
+								<li>Il vérifie avec le merge si aucun fichiers n'est en conflit</li>
+								<li>Il fusionne le tout dans le master</li>
+							</ul>
+							<br /><br />
+							<p>En <span class="hightlight">cas d'incertitude</span> : <span style="font-size: 18pt; font-style: italic;">Automatic merge failed; fix conflicts and then commit the result</span></p>
+							<ul>
+								<li>Il va créer une branche virtuelle le temps de résoudre le conflit</li>
+								<li>Le/les fichiers en conflits proposent l'ensemble des modification, <span class="hightlight">il suffit de choisir</span></li>
+							</ul>
+							
+						</div>
+					</section>
+					
+					<section>
+						<h3>Gestion des conflits</h3>
+						<h4>Exemple : le fichier index.html en conflit</h4>
+						
+						<div style="text-align: left;">
+							<p>Il suffit d'ouvrir le fichier et de choisir la bonne version</p>
+							<ul>
+								<li>Ou utiliser : <code>$&nbsp;git mergetool&nbsp;</code></li>
+							</ul>
+							<textarea style="height: 210px;">
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8">
+			<title>Insert title here</title>
+			<link rel="stylesheet" href="style.css" />
+		</head>
+	<body>
+<<<<<<< HEAD:index.html
+		<h1>Hello tout le monde</h1>
+=======
+		<h1>Hello world</h1>
+>>>>>>> dev:index.html
+	</body>
+</html></textarea>
+						
+						<p>On termine par :</p>
+						<ul>
+							<li><code>$&nbsp;git commit -a &nbsp;</code>
+								<ul class="puce2">
+									<li>Le message peut être changé si besoin</li>
+								</ul>
+							</li>
+						</ul>
+						</div>
+						
+					</section>
+				</section>
+				
+				<section>
+					<h3>Le quotidien du développeur seul</h3>
+					<h4>C'est plus simple maintenant...</h4>				
+					<img class="normal-image" src="img/seul.png" />
+					<div style="text-align: left;">
+						<ul>
+							<li>Mais il n'y avait pas ce bug <span class="hightlight">hier</span> ? <img class="icon" src="img/check.png" /></li>
+							<li><span class="hightlight">Pourquoi</span> j'ai fait ça moi ? <img class="icon" src="img/check.png" /></li>
+							<li>Comment je fais pour <span class="hightlight">revenir en arrière</span> ? <img class="icon" src="img/check.png" /></li>
+						</ul>
+					</div>
+				</section>
+				
+				<section>
+					<h3>Et en équipe alors ?</h3>
+					<h4>Comment ça se passe ?</h4>
+				</section>
+				
+				<section>
+					<h1>GIT</h1>
+					<h3>Logiciel de gestion de versions <span class="hightlight">décentralisé</span></h3>
+				</section>
+				
+				<section>
+					<section>
+						<h3>GIT CLONE : Récupération d'un projet distant</h3>
+						<h4>Un projet GIT devient un <span class="hightlight">dépôt</span></h4>				
+						
+						<div style="text-align: left;">
+							<p>Clôner un projet distant :</p>
+							<ul>
+								<li><code>$&nbsp;git clone &#60;chemin_vers_le_projet&#62;&nbsp;</code>
+								<ul class="puce2">
+									<li>Récupère une copie du projet hebergé à distance</li>
+									<li>Protocole supporté : ssh, http, ... exemple : <br />
+									<code>git clone ssh://utilisateur@monserveur.com/chemin/vers/le/projet</code></li>
+								</ul>
+								</li>
+							</ul>
+							<br/><br/>
+							<p>Et si je veux hebergé mon code sur un seveur ?</p>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Création d'un dépôt distant</h3>
+						<h4>A <span class="hightlight">remote</span> repository</h4>				
+						
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;mkdir mon_projet.git&nbsp;</code>
+								<ul class="puce2">
+									<li>Convention/Bonnes pratiques : utiliser <span class="hightlight">.git</span> à la fin du nom de dossier<br /><br /></li>
+								</ul>
+								<li><code>$&nbsp;cd mon_projet.git&nbsp;</code></li>
+								<li><code>$&nbsp;git init --share --bare&nbsp;</code>
+								<ul class="puce2">
+									<li><span class="hightlight">--share</span> : Permissions de partage du dépot</li>
+									<li><span class="hightlight">--bare</span> : Dépôt qui contiendra uniquement le dossier .git</li>
+								</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Aprés le clone ?</h3>
+						<h4>Branches <span class="hightlight">remotes</span> Vs branches <span class="hightlight">locales</span></h4>				
+						
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;git remote -v&nbsp;</code>
+									<ul class="puce2">
+										<li><span class="hightlight">Origin</span> : la branche de départ</li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git remote add &#60;nom_branche_remote&#62; &#60;dépot&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li>Ajout d'une nouvelle branche remote vers nouveau dépôt</li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git remote rm &#60;nom_branche_remote&#62;&nbsp;</code>
+								<ul class="puce2">
+									<li>Suppression d'une branche remote</li>
+								</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Récupérer des modifications</h3>
+						<h4><span class="hightlight">Se tenir à jour</span> avec un dépôt</h4>				
+						
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;git fetch &#60;branche_remote&#62; &#60;branche_locale&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li>Récupére les modifications</li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git merge &#60;branche_remote&#62; &#60;branche_locale&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li>Pour merger les modifications</li>
+									</ul>
+								</li>
+							</ul>
+							<hr />
+							<p>Plus simple</p>
+							<ul>
+								<li><code>$&nbsp;git pull &#60;branche_remote&#62; &#60;branche_locale&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li><code>$&nbsp;git pull ; git merge&nbsp;</code></li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Envoyer des modifications</h3>
+						<h4><span class="hightlight">Mettre à jour</span> un dépôt</h4>				
+						
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;git log -p&nbsp;</code>
+									<ul class="puce2">
+										<li>Avant d'envoyer les commits, vérifiez les modifs</li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git pull&nbsp;</code>
+									<ul class="puce2">
+										<li>Vérifier qu'il n'y a pas de nouvelles modifs - Les <span class="hightlight">merges</span> se font en <span class="hightlight">local</span></li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git push &#60;branche_remote&#62; &#60;branche_locale&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li>Pour envoyer tous les nouveaux commits</li>
+									</ul>
+								</li>
+							</ul>
+							<hr />
+							<p>Et voilà ;)</p>
+						</div>
+					</section>
+					
+				</section>
+				
+				<section>
+					<h3>Exercices</h3>
+				</section>
+				
+			</div>
+		</div>
+
+		<script src="lib/foundation-5.0.2/js/jquery.js"></script>	
+		<script src="lib/foundation-5.0.2/js/foundation.min.js"></script>
+		
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

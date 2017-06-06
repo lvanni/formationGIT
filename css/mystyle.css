@@ -1,0 +1,31 @@
+.hightlight {
+	color: #ff3b3b;	
+}
+
+.normal-image {
+	height: 200px;	
+}
+
+.puce2 > li{
+    list-style-type: circle;
+    font-size: 18pt;
+    
+}
+
+code {
+	background-color: black;
+	color: green;
+	font-size: 24pt !important;
+}
+
+.puce2 > li > code {
+	font-size: 18pt !important;
+}
+
+.icon {
+	border: none !important;	
+	background: none !important;
+	height: 30px;
+	position: relative;
+	top: 0.5em;
+}
