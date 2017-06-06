@@ -379,12 +379,17 @@
 							<p>L'historique  : </p>
 							<ul>
 								<li><code>$&nbsp;git log&nbsp;</code></li>
-								<li><code>$&nbsp;git log -p&nbsp;</code></li>
+								<li><code>$&nbsp;git log --graph --decorate --oneline --all&nbsp;</code>
+										<ul class="puce2">
+											<li>Alias : <code>$&nbsp;git config --global alias.lola "log --graph --decorate --oneline --all"&nbsp;</code></li>
+											<li>Nouvelle commande : <code>$&nbsp;git lola&nbsp;</code></li>
+										</ul>
+								</li>
 							</ul>
 						</div>
 						<hr />
 						Pour l'instant c'est vide...
-					</section>
+					</section>	
 					
 					<section>
 						<h3>Ajoutons des fichiers</h3>
@@ -489,7 +494,6 @@ temp* 		# ignorer tous les fichiers commençant par temp
 						<h3>Mon premier commit</h3>
 						<h4>Bonnes pratiques</h4>
 						
-						<br />
 						<div  style="text-align: left;">
 							<p>Commit rapide : </p>
 							<ul>
@@ -501,7 +505,6 @@ temp* 		# ignorer tous les fichiers commençant par temp
 								</li>
 							</ul>
 						</div>
-						<br />
 						<div class="row" style="text-align: left;">
 							<div class="large-6 columns">
 								<p>Commit pro : </p>
@@ -531,6 +534,12 @@ L.V.
 #
 </textarea>
 							</div>
+						</div>
+						<div  style="text-align: left;">
+							<p>Modifiez votre dernier commit : </p>
+							<ul>
+								<li><code>$&nbsp;git commit --amend&nbsp;</code></li>
+							</ul>
 						</div>
 					</section>
 					
@@ -572,6 +581,15 @@ L.V.
 							
 						</div>
 						
+					</section>
+					
+					<section>
+						<h3>Exercice </h3>
+						
+						<ol>
+							<li><span class="hightlight">Ajoutez</span> des modifications</li>
+							<li>Tester la commande (<span class="hightlight">Avant</span> le commit) : <code>$&nbsp;git diff&nbsp;</code></li>			
+						</ol>
 					</section>
 					
 				</section>
@@ -672,8 +690,8 @@ L.V.
 						<h3>Exercice </h3>
 						
 						<ol>
-							<li><span class="hightlight">Ajoutons</span> des modifications à notre projet web</li>
-							<li><span class="hightlight">Revenons</span> à l'état initial</li>			
+							<li><span class="hightlight">Ajoutez</span> des modifications au projet web</li>
+							<li><span class="hightlight">Revenez</span> à l'état initial du projet</li>			
 						</ol>
 					</section>
 				</section>
@@ -902,6 +920,37 @@ L.V.
 				</section>
 				
 				<section>
+					<h3>Exercice</h3>
+					<h4>On récapitule tout</h4>
+					
+					<ol>
+						<li><span class="hightlight">Créez</span> un nouveau projet</li>
+						<li><span class="hightlight">Ajoutez</span> un fichier Readme.txt
+							<ul class="puce2">
+								<li>Ajoutez une entrée dans l'historique</li>
+							</ul>	
+						</li>
+						<li><span class="hightlight">Modifiez</span> le fichier
+							<ul class="puce2">
+								<li>Notez quelques commandes de base de git</li>
+								<li>Ajoutez une entrée dans l'historique</li>
+							</ul>	
+						</li>
+						<li><span class="hightlight">Créez</span> une version html du readme
+							<ul class="puce2">
+								<li>Utilisez une nouvelle branche</li>
+								<li>Ajoutez des entrées dans l'historique</li>
+							</ul>	
+						</li>
+						<li><span class="hightlight">Fusionnez</span> le tout dans la branche master
+							<ul class="puce2">
+								<li>Supprimez la branche de developpement</li>
+							</ul>
+						</li>
+					</ol>
+				</section>
+				
+				<section>
 					<h3>Le quotidien du développeur seul</h3>
 					<h4>C'est plus simple maintenant...</h4>				
 					<img class="normal-image" src="img/seul.png" />
@@ -915,8 +964,8 @@ L.V.
 				</section>
 				
 				<section>
-					<h3>Et en équipe alors ?</h3>
-					<h4>Comment ça se passe ?</h4>
+					<h3>Et en équipe ?</h3>
+					<h4>Travailler à plusieurs avec GIT</h4>
 				</section>
 				
 				<section>
@@ -925,31 +974,13 @@ L.V.
 				</section>
 				
 				<section>
-					<section>
-						<h3>GIT CLONE : Récupération d'un projet distant</h3>
-						<h4>Un projet GIT devient un <span class="hightlight">dépôt</span></h4>				
-						
-						<div style="text-align: left;">
-							<p>Clôner un projet distant :</p>
-							<ul>
-								<li><code>$&nbsp;git clone &#60;chemin_vers_le_projet&#62;&nbsp;</code>
-								<ul class="puce2">
-									<li>Récupère une copie du projet hebergé à distance</li>
-									<li>Protocole supporté : ssh, http, ... exemple : <br />
-									<code>git clone ssh://utilisateur@monserveur.com/chemin/vers/le/projet</code></li>
-								</ul>
-								</li>
-							</ul>
-							<br/><br/>
-							<p>Et si je veux hebergé mon code sur un seveur ?</p>
-						</div>
-					</section>
 					
 					<section>
 						<h3>Création d'un dépôt distant</h3>
 						<h4>A <span class="hightlight">remote</span> repository</h4>				
 						
 						<div style="text-align: left;">
+							<br/>
 							<ul>
 								<li><code>$&nbsp;mkdir mon_projet.git&nbsp;</code>
 								<ul class="puce2">
@@ -966,6 +997,75 @@ L.V.
 						</div>
 					</section>
 					
+					<section>
+						<h3>Ajout d'un branche remote dans un projet GIT</h3>
+						<h4>Un dépot distant devient une branche distante</h4>				
+						
+						<div style="text-align: left;">
+							<br/>
+							<p>Dans un projet déjà existant:</p>
+							<ul>
+								<li><code>$&nbsp;git remote add &#60;branche_remote&#62 &#60;chemin_dépot&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li><span class="hightlight">origin</span> : branche remote par defaut (le master remote)<br /><br /></li>
+									</ul>
+								</li>
+								<li><code>$&nbsp;git remote rm &#60;branche_remote&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li><span class="hightlight">Supprimer</span> une branche remote</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+					
+					<section>
+						<h3>Envoyer des modifications</h3>	
+						
+						<div style="text-align: left;">
+							<ul>
+								<li><code>$&nbsp;git push &#60;branche_remote&#62; &#60;branche_locale&#62;&nbsp;</code>
+									<ul class="puce2">
+										<li>Pour envoyer tous les nouveaux commits</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h3>GIT CLONE : Récupération d'un projet distant</h3>
+						<h4>Un projet GIT devient un <span class="hightlight">dépôt</span></h4>				
+						
+						<div style="text-align: left;">
+							<p>Clôner un projet distant :</p>
+							<ul>
+								<li><code>$&nbsp;git clone &#60;chemin_dépot&#62;&nbsp;</code>
+								<ul class="puce2">
+									<li>Récupère une copie du projet hebergé à distance</li>
+									<li>Protocole supporté : ssh, http, ... exemple : <br />
+									<code>git clone ssh://utilisateur@monserveur.com/chemin/vers/le/dépot</code></li>
+								</ul>
+								</li>
+							</ul>
+						</div>
+					</section>
+
+					<section>
+						<h3>Exercice</h3>
+						<h4>Récupérer le code d'un autre</h4>
+						
+						<ol>
+							<li><span class="hightlight">Créez</span> un nouveau repository public</li>
+							<li><span class="hightlight">Enregistrer</span>-y le projet précédent</li>
+							<li><span class="hightlight">Récupérer</span> le projet d'un autre développeur</li>
+						</ol>
+						
+					</section>
+
+				</section>
+
+				<section>					
 					<section>
 						<h3>Aprés le clone ?</h3>
 						<h4>Branches <span class="hightlight">remotes</span> Vs branches <span class="hightlight">locales</span></h4>				
@@ -1022,7 +1122,7 @@ L.V.
 					
 					<section>
 						<h3>Envoyer des modifications</h3>
-						<h4><span class="hightlight">Mettre à jour</span> un dépôt</h4>				
+						<h4>Bonnes pratiques</h4>				
 						
 						<div style="text-align: left;">
 							<ul>
@@ -1042,17 +1142,205 @@ L.V.
 									</ul>
 								</li>
 							</ul>
-							<hr />
-							<p>Et voilà ;)</p>
 						</div>
+					</section>
+
+					<section>
+						<h3>Exercice</h3>
+						<h4>Echanger des modifications avec un autre</h4>
+						
+						<ol>
+							<li><span class="hightlight">Ajouter</span> une commande dans le readme du projet récupéré</li>
+							<li><span class="hightlight">Envoyer</span> la modification sur le repository public</li>
+						</ol>
+						
 					</section>
 					
 				</section>
 				
 				<section>
-					<h3>Exercices</h3>
+					<h3>Pour aller plus loin</h3>
+					<h4>D'autres commandes pour les utilisateurs avancés</h4>			
+					<div style="text-align: left;">
+						<ul>
+							<li>Étiqueter un certain état dans l'historique (Tagger une version)
+								<ul class="puce2">
+									<li><code>$&nbsp;git tag&nbsp;</code></li>
+								</ul>
+								<br />
+							</li>
+							<li>Garder un historique linéraire
+								<ul class="puce2">
+									<li><code>$&nbsp;git rebase&nbsp;</code></li>
+								</ul>
+								<br />
+							</li>
+							<li>Sélectionner un commit précis à merger
+								<ul class="puce2">
+									<li><code>$&nbsp;git cherry-pick&nbsp;</code></li>
+								</ul>
+								<br />
+							</li>
+						</ul>
+					</div>
 				</section>
 				
+				<section>
+					<h3>GIT, Les workflows standards</h3>
+				</section>
+				
+				<section>
+					<section>
+						<h3>Le Workflow <span class="hightlight">centralisé</span></h3>
+						<h4>Simple, même trop...</h4>
+						
+						<div class="row">
+							<div class="large-4 columns" style="text-align: left;">
+								<p><span class="hightlight">Simple</span> et rapide</p>
+								<ul class="puce2">
+									<li>Un seul dépôt public</li>
+								</ul>
+								<br /><br />
+								<p>Pas très robuste</p>
+								<ul class="puce2">
+									<li>Tolerance aux <span class="hightlight">pannes</span></li>
+									<li>Gestion des <span class="hightlight">conflits</span> et des droits...</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/workflow_1.png" />
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Exercice</h3>
+						<h4>Gestion de projet centralisé</h4>
+						
+						<ol>
+							<li><span class="hightlight">Clonez</span> un projet commun
+								<ul class="puce2">
+									<li>Utilisez un des projets existant</li>
+								</ul></li>
+							<li><span class="hightlight">Faites</span> des modifications
+								<ul class="puce2">
+									<li>Dans une branche séparée</li>
+								</ul>
+							</li>
+							<li><span class="hightlight">Envoyez</span> les modifications
+								<ul class="puce2">
+									<li>Toujours dans une branche séparée</li>
+								</ul>
+							</li>
+							
+							<li><span class="hightlight">Mettez à jour</span> le master et votre branche</li>
+						</ol>
+						
+					</section>
+
+				</section>
+				
+				<section>
+					<section>
+						<h3>Workflow <span class="hightlight">décentralisé</span></h3>
+						<h4>Integration-Manager</h4>
+						
+						<div class="row">
+							<div class="large-4 columns" style="text-align: left;">
+								<p><span class="hightlight">Performant</span></p>
+								<ul class="puce2">
+									<li>Idéal pour tous types de projets</li>
+								</ul>
+								<br /><br />
+								<p><span class="hightlight">Robuste</span></p>
+								<ul class="puce2">
+									<li>Un dépot par développeur</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/workflow_2.png" />
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Exercice</h3>
+						<h4>Integration-Manager</h4>
+						
+						<ol>
+							<li><span class="hightlight">Clonez</span> un projet commun
+								<ul class="puce2">
+									<li>Utilisez un des projets existant</li>
+								</ul></li>
+							<li><span class="hightlight">Faites</span> des modifications
+								<ul class="puce2">
+									<li>Dans une branche séparée</li>
+									<li>Fusionnez avec votre branche master</li>
+								</ul>
+							</li>
+							<li><span class="hightlight">Créez</span> un dépôt partagé</li>
+							<li><span class="hightlight">Envoyez</span> les modifications
+								<ul class="puce2">
+									<li>Dans votre branche master dans votre dépôt</li>
+								</ul>
+							</li>
+							
+							<li><span class="hightlight">Mettez à jour</span> le master et votre branche</li>
+						</ol>
+						
+					</section>
+
+				</section>
+				
+				<section>
+					<section>
+						<h3>Workflow <span class="hightlight">décentralisé</span></h3>
+						<h4>Dictator and Lieutenants</h4>
+						
+						<div class="row">
+							<div class="large-4 columns" style="text-align: left;">
+								<p>Complet</p>
+								<ul class="puce2">
+									<li>Idéal pour les <span class="hightlight">gros projets</span> (beaucoup de développeurs)</li>
+								</ul>
+								<br /><br />
+								<p><span class="hightlight">Très Robuste</span></p>
+								<ul class="puce2">
+									<li>Plusieurs niveaux d'intégration</li>
+								</ul>
+							</div>
+							<div class="large-8 columns">
+								<img src="img/workflow_3.png" />
+							</div>
+						</div>
+					</section>
+
+					<section>
+						<h3>Exercice</h3>
+						<h4>Dictator and Lieutenants</h4>
+						
+						<ol>
+							<li>Dans le projet précedent : 
+								<ul class="puce2">
+									<li>Mettez-vous <span class="hightlight">en équipe</span> : exemple style, contenu, controlleur, ...</li>
+									<li>Designez un "lieutenant" par équipe</li>
+									<li>Créez un dépôt par équipe</li>
+								</ul>	
+							</li>
+							<li><span class="hightlight">Faites</span> des modifications
+								<ul class="puce2">
+									<li>Chaque développeur travaille sur son dépôt</li>
+									<li>Le "lieutenant" fusionne le travaille de son équipe</li>
+									<li>Le "lieutenant" envoie les modifications sur le dépôt de l'équipe</li>
+								</ul>
+							</li>
+							
+							<li><span class="hightlight">Mettez à jour</span> le master et votre branche</li>
+						</ol>
+						
+					</section>
+
+				</section>				
 			</div>
 		</div>
 
