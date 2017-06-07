@@ -906,6 +906,7 @@ L.V.
 							<ul>
 								<li>Ou d'utiliser : <code>$&nbsp;git mergetool&nbsp;</code></li>
 							</ul>
+							<br />
 							<textarea style="height: 210px;">
 <!DOCTYPE html>
 	<html>
@@ -925,11 +926,7 @@ L.V.
 						
 						<p>On termine par :</p>
 						<ul>
-							<li><code>$&nbsp;git commit -a &nbsp;</code>
-								<ul class="puce2">
-									<li>Le message peut être changé si besoin</li>
-								</ul>
-							</li>
+							<li><code>$&nbsp;git commit -a &nbsp;</code></li>
 						</ul>
 						</div>
 						
@@ -1024,7 +1021,7 @@ L.V.
 							<ul>
 								<li><code>$&nbsp;git remote add &#60;branche_remote&#62 &#60;chemin_dépot&#62;&nbsp;</code>
 									<ul class="puce2">
-										<li><span class="hightlight">origin</span> : branche remote par defaut (le master remote)<br /><br /></li>
+										<li><span class="hightlight">origin</span> : branche remote par defaut</li>
 									</ul>
 								</li>
 								<li><code>$&nbsp;git remote rm &#60;branche_remote&#62;&nbsp;</code>
@@ -1032,6 +1029,11 @@ L.V.
 										<li><span class="hightlight">Supprimer</span> une branche remote</li>
 									</ul>
 								</li>
+							</ul>
+							<br/><br/>
+							<p>Lister les branches remotes:</p>
+							<ul>
+								<li><code>$&nbsp;git remote -v&nbsp;</code></li>
 							</ul>
 						</div>
 					</section>
@@ -1051,6 +1053,21 @@ L.V.
 					</section>
 
 					<section>
+						<h3>Exercice</h3>
+						<h4>Récupérer le code d'un autre</h4>
+						
+						<ol>
+							<li><span class="hightlight">Créez</span> un nouveau repository public</li>
+							<li><span class="hightlight">Enregistrez</span>-y le projet memento de l'exercice précédent</li>
+						</ol>
+						
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
 						<h3>GIT CLONE : Récupération d'un projet distant</h3>
 						<h4>Un projet GIT devient un <span class="hightlight">dépôt</span></h4>				
 						
@@ -1067,22 +1084,7 @@ L.V.
 							</ul>
 						</div>
 					</section>
-
-					<section>
-						<h3>Exercice</h3>
-						<h4>Récupérer le code d'un autre</h4>
-						
-						<ol>
-							<li><span class="hightlight">Créez</span> un nouveau repository public</li>
-							<li><span class="hightlight">Enregistrez</span>-y le projet memento de l'exercice précédent</li>
-							<li><span class="hightlight">Récupérez</span> le projet d'un autre développeur</li>
-						</ol>
-						
-					</section>
-
-				</section>
-
-				<section>					
+										
 					<section>
 						<h3>Aprés le clone ?</h3>
 						<h4>Branches <span class="hightlight">remotes</span> Vs branches <span class="hightlight">locales</span></h4>				
@@ -1166,11 +1168,19 @@ L.V.
 						<h3>Exercice</h3>
 						<h4>Echanger des modifications avec un autre</h4>
 						
-						<ol>
-							<li><span class="hightlight">Ajoutez</span> une commande dans le readme du projet récupéré</li>
-							<li><span class="hightlight">Envoyez</span> la modification sur le repository public</li>
-							<li><span class="hightlight">Récupérez</span> les modifications d'autres développeurs</li>
-						</ol>
+						<div style="text-align: left;">
+							<ol>
+								<li><span class="hightlight">Récupérez</span> le projet d'un autre développeur</li>
+								<li><span class="hightlight">Ajoutez</span> un fichier dans le projet récupéré</li>
+								<li><span class="hightlight">Ajoutez</span> une ligne dans le readme.txt</li>
+								<li><span class="hightlight">Envoyez</span> les modification sur le dépôt</li>
+								<li>Faites un test sur votre dépôt
+								<ul>
+									<li><span class="hightlight">Récupérez</span> les modifications d'autres développeurs sur votre dépôt</li>
+								</ul>
+								</li>
+							</ol>
+						</div>
 						
 					</section>
 					
@@ -1348,17 +1358,27 @@ L.V.
 									<ul class="puce2">
 										<li><code>$&nbsp;git tag&nbsp;</code></li>
 									</ul>
-									<br />
 								</li>
 								<li>Gardez un historique linéraire
 									<ul class="puce2">
 										<li><code>$&nbsp;git rebase&nbsp;</code></li>
 									</ul>
-									<br />
 								</li>
 								<li>Sélectionnez un commit précis à merger
 									<ul class="puce2">
 										<li><code>$&nbsp;git cherry-pick&nbsp;</code></li>
+									</ul>
+								</li>
+								<li>Créer/Appliquer un patch
+									<ul class="puce2">
+										<li><code>$&nbsp;git format-patch -1 &#60;sha1&#62; --stdout &#62; &#60;name&#62;.patch&nbsp;</code></li>
+										<li><code>$&nbsp;git am --signoff -k &#60; &#60;name&#62;.patch&nbsp;</code></li>
+									</ul>
+								</li>
+								<li>Autres
+									<ul class="puce2">
+										<li><code>$&nbsp;git-svn&nbsp;</code></li>
+										<li><code>$&nbsp;git-ftp&nbsp;</code></li>
 									</ul>
 									<br />
 								</li>
@@ -1366,16 +1386,56 @@ L.V.
 						</div>
 					</section>
 					<section>
-						<h3>GitHub</h3>
-						<h4>Le <span class="hightlight">social network</span> de GIT </h4>			
-						<div style="text-align: left;">
-							<ul>
-								<li>Large communauté</li>
-								<li>Publier du code devient vraiment simple</li>
-								<li>Éviter de réinventer la roue</li>
-								<li>Soutenir un écosystème plus vaste</li>
-							</ul>
+						<h3>Pour aller plus loin</h3>
+						<h4>Dans la comunauté GIT </h4>			
+						<br />
+						<div style="text-align: left;" class="row">
+							<div class="large-10 columns">
+								<p><a href="https://github.com/">GitHub</a> : Le social network de GIT</p>
+								<ul>
+									<li>Large <span class="hightlight">communauté</span></li>
+									<li><span class="hightlight">Publier du code</span> devient vraiment simple</li>
+									<li>Éviter de réinventer la roue</li>
+									<li>Soutenir un écosystème plus vaste</li>
+								</ul>
+							</div>
+							<div class="large-2 columns">
+								<img src="img/github_logo.png" />
+							</div>
 						</div>
+					</section>
+					
+					<section>
+						<h3>Pour aller plus loin</h3>
+						<h4>Un peu de lecture</h4>			
+						<ul>
+							<li>Documentation officielle
+								<ul class="puce2">
+									<li><a href="https://git-scm.com">https://git-scm.com</a></li>
+								</ul>
+							</li>
+							<li>Les Bases
+								<ul class="puce2">
+									<li><a href="https://git-scm.com/book/fr/v1/Les-bases-de-Git-D%C3%A9marrer-un-d%C3%A9p%C3%B4t-Git">https://git-scm.com/book/fr/v1/Les-bases-de-Git-Démarrer-un-dépôt-Git</a></li>
+								</ul>
+							</li>
+							<li>À propos de branches
+								<ul class="puce2">
+									<li><a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></li>
+								</ul>
+							</li>
+							<li>Un gitlab CNRS (sorte de GitHub) 
+								<ul class="puce2">
+									<li><a href="https://gitlab.in2p3.fr/users/sign_in">https://gitlab.in2p3.fr/users/sign_in</a></li>
+								</ul>
+							</li>
+							<li>
+								Un tuto généraliste
+								<ul class="puce2">						
+									<li><a href="https://www.atlassian.com/git/tutorials/what-is-git">https://www.atlassian.com/git/tutorials/what-is-git</a></li>
+								</ul>
+							</li>
+						</ul>
 					</section>
 				</section>
 				
