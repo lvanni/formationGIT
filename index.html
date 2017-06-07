@@ -48,7 +48,7 @@
 					<h1>GIT</h1>
 					<h3>Logiciel de gestion de versions décentralisé</h3>
 					<p>
-						<small>Présenter par Laurent.Vanni <a href="mailto:lvanni@unice.fr">@unice.fr</a></small>
+						<small>Présenté par Laurent.Vanni <a href="mailto:lvanni@unice.fr">@unice.fr</a></small>
 					</p>
 				</section>
 				
@@ -188,7 +188,7 @@
 							<p>Avantages</p>
 							<ul>
 								<li>Décentralisé</li>
-								<li>Gestion des branches</li>
+								<li><span class="hightlight">Gestion des branches</span></li>
 								<li>L'interface console évoluée</li>
 								<li>Les algorithmes de fusion</li>
 								<li>La rapidité</li>
@@ -345,10 +345,9 @@
 				
 				<section>
 					<section>
-						<h3>Permières commandes</h3>
+						<h3>Premières commandes</h3>
 						<h4>Initialisation d'un projet</h4>
-						
-						<br />
+
 						<div style="text-align: left;">
 							<p>Création d'un projet/dossier : </p>
 							<ul>
@@ -356,12 +355,16 @@
 								<li><code>$&nbsp;cd mon_projet&nbsp;</code></li>
 							</ul>
 							<br /><br />
-							<p>initialisation d'un dépôt GIT  : </p>
+							<p>Initialisation d'un dépôt GIT  : </p>
 							<ul>
 								<li><code>$&nbsp;git init&nbsp;</code></li>
 							</ul>
 							<br /><br />
-							<p>Et voilà </p>
+							<p>C'est fait, le dépôt est initialisé, un dossier <span class="hightlight">.git/</span> a été créé.</p>
+							<ul>
+								<li>Voir : <code>$&nbsp;ls -l&nbsp;</code></li>
+								<li>Voir : <code>$&nbsp;ls -al&nbsp;</code></li>
+							</ul>
 						</div>
 					</section>
 					
@@ -442,7 +445,6 @@
 						<h3>Permières commandes</h3>
 						<h4>Ajoutons les fichiers à GIT</h4>
 						
-						<br />
 						<div style="text-align: left;">
 							<p>Dire à GIT de prendre en compte ces nouveaux fichiers: </p>
 							<ul>
@@ -453,8 +455,9 @@
 									</ul>
 								</li>
 							</ul>
+							<br /><br />
 							<ul>
-								<li>Dire à GIT d'ignorer certains fichiers avec le fichier : <span class="hightlight">.gitignore</span> :<br /><br />
+								<li>Dire à GIT d'ignorer certains fichiers avec le fichier : <span class="hightlight">.gitignore</span><br /><br />
 											<textarea style="height: 100px;">
 foo 		# ignorer tous les fichiers ou répertoires foo
 build  		# ignorer le répertoire build à la racine du projet
@@ -587,8 +590,18 @@ L.V.
 						<h3>Exercice </h3>
 						
 						<ol>
-							<li><span class="hightlight">Ajoutez</span> des modifications</li>
-							<li>Tester la commande (<span class="hightlight">Avant</span> le commit) : <code>$&nbsp;git diff&nbsp;</code></li>			
+							<li><span class="hightlight">Créez</span> deux nouveaux fichiers
+								<ul class="puce2">
+									<li>un readme.txt</li>
+									<li>un test.tmp</li>
+								</ul>
+							</li>
+							<li><span class="hightlight">Ajoutez</span> le readme.txt et dites à GIT d'<span class="hightlight">ignorer</span> les fichiers *.tmp</li>
+							<li>Faites un commit</li>
+							<li>Ajoutez des <span class="hightlight">modifications</span> au projet (modifiez un des fichiers)</li>
+							<li>Tester la commande <code>$&nbsp;git diff&nbsp;</code> <span class="hightlight">Avant</span> le commit</li>
+							<li>Faites un commit</li>
+							<li>Affichez l'<span class="hightlight">historique</span> des modifications</li>
 						</ol>
 					</section>
 					
@@ -614,13 +627,13 @@ L.V.
 				<section>
 					<section>
 						<h3>Git : système de fichier adressables par contenu</h3>
-						<h4>Base de donnée clé/valeur</h4>
+						<h4>base de données clé/valeur</h4>
 						
 						<div style="text-align: left;">
 							<p>Le répertoire <span class="hightlight">.git/</span> (créé au moment du git init)</p>
 							<ul>
 								<li>Contient le <span class="hightlight">coeur de git</span> (config, algo, ...)</li>
-								<li>Contient la <span class="hightlight">base de donnée</span> du projet : <span class="hightlight">.git/object/</span>
+								<li>Contient la <span class="hightlight">base de données</span> du projet : <span class="hightlight">.git/object/</span>
 									<ul class="puce2">
 										<li><code>$ find .git/objects -type f<br />
 										.git/objects/0b/b3f40c0b55d604ce6382fd8c7fec1414488c07</code></li>
@@ -661,7 +674,7 @@ L.V.
 						<h4>Les commandes de base</h4>
 						
 						<div style="text-align: left;">
-							<p>Effacer des commits de l'historique</p>
+							<p>Revenir à un ancien commit de l'historique</p>
 							<ul>
 								<li><code>$&nbsp;git reset HEAD&nbsp;</code>
 									<ul class="puce2">
@@ -690,8 +703,12 @@ L.V.
 						<h3>Exercice </h3>
 						
 						<ol>
-							<li><span class="hightlight">Ajoutez</span> des modifications au projet web</li>
-							<li><span class="hightlight">Revenez</span> à l'état initial du projet</li>			
+							<li><span class="hightlight">Ajoutez</span> 2 nouveaux commits</li>
+							<li><span class="hightlight">Revenez</span> en arrière dans l'historique
+									<ul class="puce2">
+										<li>Effacez les deux commits</li>
+									</ul>
+							</li>			
 						</ol>
 					</section>
 				</section>
@@ -710,9 +727,9 @@ L.V.
 							<p>Travailler en <span class="hightlight">parallèle</span> sur plusieurs fonctionnalités.</p>
 							<ul>
 								<li>Une branche principale pour une version stable du code</li>
-								<li>Plusieurs branches de développement, exemple
+								<li>Plusieurs branches pour le développement, les tests, ...
 									<ul class="puce2">
-										<li>Interface graphiques, Controller, modèle, tmp, ...</li>
+										<li>Interface graphique, Controller, modèle, tmp, ...</li>
 									</ul>
 								</li>
 							</ul>
@@ -867,14 +884,14 @@ L.V.
 						<div style="text-align: left;">
 							<p>Git gère ça pour vous :</p>
 							<ul>
-								<li>Il vérifie avec le merge si aucun fichiers n'est en conflit</li>
+								<li>Il vérifie avec le merge si aucun fichier n'est en conflit</li>
 								<li>Il fusionne le tout dans le master</li>
 							</ul>
 							<br /><br />
 							<p>En <span class="hightlight">cas d'incertitude</span> : <span style="font-size: 18pt; font-style: italic;">Automatic merge failed; fix conflicts and then commit the result</span></p>
 							<ul>
 								<li>Il va créer une branche virtuelle le temps de résoudre le conflit</li>
-								<li>Le/les fichiers en conflits proposent l'ensemble des modification, <span class="hightlight">il suffit de choisir</span></li>
+								<li>Le(s) fichier(s) en conflit proposent l'ensemble des modifications, <span class="hightlight">il suffit de choisir</span></li>
 							</ul>
 							
 						</div>
@@ -887,7 +904,7 @@ L.V.
 						<div style="text-align: left;">
 							<p>Il suffit d'ouvrir le fichier et de choisir la bonne version</p>
 							<ul>
-								<li>Ou utiliser : <code>$&nbsp;git mergetool&nbsp;</code></li>
+								<li>Ou d'utiliser : <code>$&nbsp;git mergetool&nbsp;</code></li>
 							</ul>
 							<textarea style="height: 210px;">
 <!DOCTYPE html>
@@ -944,7 +961,7 @@ L.V.
 						</li>
 						<li><span class="hightlight">Fusionnez</span> le tout dans la branche master
 							<ul class="puce2">
-								<li>Supprimez la branche de developpement</li>
+								<li>Supprimez la branche de développement</li>
 							</ul>
 						</li>
 					</ol>
@@ -984,7 +1001,7 @@ L.V.
 							<ul>
 								<li><code>$&nbsp;mkdir mon_projet.git&nbsp;</code>
 								<ul class="puce2">
-									<li>Convention/Bonnes pratiques : utiliser <span class="hightlight">.git</span> à la fin du nom de dossier<br /><br /></li>
+									<li>Bonnes pratiques : utiliser <span class="hightlight">.git</span> à la fin du nom de dossier<br /><br /></li>
 								</ul>
 								<li><code>$&nbsp;cd mon_projet.git&nbsp;</code></li>
 								<li><code>$&nbsp;git init --share --bare&nbsp;</code>
@@ -998,7 +1015,7 @@ L.V.
 					</section>
 					
 					<section>
-						<h3>Ajout d'un branche remote dans un projet GIT</h3>
+						<h3>Ajout d'une branche remote dans un projet GIT</h3>
 						<h4>Un dépot distant devient une branche distante</h4>				
 						
 						<div style="text-align: left;">
@@ -1038,7 +1055,7 @@ L.V.
 						<h4>Un projet GIT devient un <span class="hightlight">dépôt</span></h4>				
 						
 						<div style="text-align: left;">
-							<p>Clôner un projet distant :</p>
+							<p>Cloner un projet distant :</p>
 							<ul>
 								<li><code>$&nbsp;git clone &#60;chemin_dépot&#62;&nbsp;</code>
 								<ul class="puce2">
@@ -1057,8 +1074,8 @@ L.V.
 						
 						<ol>
 							<li><span class="hightlight">Créez</span> un nouveau repository public</li>
-							<li><span class="hightlight">Enregistrer</span>-y le projet memento de l'exercice précédent</li>
-							<li><span class="hightlight">Récupérer</span> le projet d'un autre développeur</li>
+							<li><span class="hightlight">Enregistrez</span>-y le projet memento de l'exercice précédent</li>
+							<li><span class="hightlight">Récupérez</span> le projet d'un autre développeur</li>
 						</ol>
 						
 					</section>
@@ -1194,7 +1211,7 @@ L.V.
 						<ol>
 							<li><span class="hightlight">Clonez</span> un projet commun
 								<ul class="puce2">
-									<li>Utilisez un des projets memento existant (le plus abouti)</li>
+									<li>Utilisez un des projets memento existants (le plus abouti)</li>
 								</ul></li>
 							<li><span class="hightlight">Faites</span> des modifications
 								<ul class="puce2">
@@ -1290,17 +1307,17 @@ L.V.
 						<h4>On change de projet</h4>
 						
 						<ol>
-							<li>Récupérer le projet qui s'appelle : <span class="hightlight">atelier</span>
+							<li>Récupérez le projet qui s'appelle : <span class="hightlight">atelier</span>
 								<ul class="puce2">
-									<li>Mettez-vous <span class="hightlight">en équipe</span> : exemple style, contenu, controlleur, ...</li>
-									<li>Designez un "lieutenant" par équipe</li>
+									<li>Mettez-vous <span class="hightlight">en équipe</span> : exemple style, contenu, controlleur...</li>
+									<li>Désignez un "lieutenant" par équipe</li>
 									<li>Créez un dépôt par équipe</li>
 								</ul>	
 							</li>
 							<li><span class="hightlight">Faites</span> des modifications
 								<ul class="puce2">
 									<li>Chaque développeur travaille sur son dépôt</li>
-									<li>Le "lieutenant" fusionne le travaille de son équipe</li>
+									<li>Le "lieutenant" fusionne le travail de son équipe</li>
 									<li>Le "lieutenant" envoie les modifications sur le dépôt de l'équipe</li>
 								</ul>
 							</li>
@@ -1327,19 +1344,19 @@ L.V.
 						<h4>D'autres commandes pour les utilisateurs avancés</h4>			
 						<div style="text-align: left;">
 							<ul>
-								<li>Étiqueter un certain état dans l'historique (Tagger une version)
+								<li>Étiquetez un état dans l'historique (tagger une version)
 									<ul class="puce2">
 										<li><code>$&nbsp;git tag&nbsp;</code></li>
 									</ul>
 									<br />
 								</li>
-								<li>Garder un historique linéraire
+								<li>Gardez un historique linéraire
 									<ul class="puce2">
 										<li><code>$&nbsp;git rebase&nbsp;</code></li>
 									</ul>
 									<br />
 								</li>
-								<li>Sélectionner un commit précis à merger
+								<li>Sélectionnez un commit précis à merger
 									<ul class="puce2">
 										<li><code>$&nbsp;git cherry-pick&nbsp;</code></li>
 									</ul>
@@ -1363,7 +1380,7 @@ L.V.
 				</section>
 				
 				<section>
-					<h3>Il y plus qu'à coder !</h3>
+					<h3>Il n'y a plus qu'à coder !</h3>
 				</section>
 			</div>
 		</div>
