@@ -45,17 +45,24 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-transition="none">
-					<h1>GIT</h1>
-					<h3>Logiciel de gestion de versions décentralisé</h3>
+					<img src="img/logo_cnrs_fill.png" style="height:40px; border:none; background: none; position: absolute; left: 0px;" />
+					<img src="img/logo_uca_fill.png" style="height:40px; border:none; background: none; position: absolute; right: 0px;" />
+					<h2><br /><br />Formation GIT</h2>
+					<h4>Logiciel de gestion de versions décentralisé</h4>
 					<p>
 						<small>Laurent.Vanni <a href="mailto:lvanni@unice.fr">@cnrs.fr</a></small>
 					</p>
-					<hr />
 					<small>
 						<a href="http://bcl.unice.fr/membres/Laurent.Vanni/formation/git/slides" target="blank">http://bcl.unice.fr/membres/Laurent.Vanni/formation/git/slides</a>
 					</small>
+					<hr />
+					<img src="img/gitlab.png" style="width: 40px; height:40px;" /> <img src="img/github.png"  style="width: 40px; height:40px;" />
 					<br />
-					<code style="font-size: 10pt !important;">$&nbsp;git clone https://src.koda.cnrs.fr/laurent.vanni.2/formationgit.git&nbsp;</code>
+					<div>
+						<code style="font-size: 10pt !important;">$&nbsp;git clone https://src.koda.cnrs.fr/laurent.vanni.2/formationgit.git&nbsp;</code>
+						<br />
+						<code style="font-size: 10pt !important;">$&nbsp;git clone https://github.com/lvanni/formationGIT.git&nbsp;</code>
+					</div>
 				</section>
 				
 				<section data-transition="none">
@@ -218,7 +225,7 @@
 				</section>
 				
 				<section data-transition="none">
-					<h3>C'est parti pour GIT ?</h3>
+					<h3>Par où on commence ?</h3>
 				</section>
 
 				<section data-transition="none">
@@ -278,7 +285,7 @@
 						<h4>Identifiez-vous 2</h4>
 						
 						<div style="text-align: left;">
-							<p>Acces remote par https (automatisation par accesstoken)</p>
+							<p>Acces remote par https (automatisation par <span class="hightlight">accesstoken</span>)</p>
 							<ul>
 								<li><code>$&nbsp;git config --global --add credential.helper "store --file ~/.git-credentials"&nbsp;</code></li>
 								<li><code>$&nbsp;vi ~/.git-credentials&nbsp;</code>
@@ -904,6 +911,10 @@ L.V.
 					</section>
 					
 				</section>
+
+				<section data-transition="none">
+					<h3>Les gestion des conflits</h3>
+				</section>
 				
 				<section data-transition="none">	
 					<section>
@@ -1083,7 +1094,7 @@ L.V.
 
 					<section>
 						<h3>Exercice</h3>
-						<h4>Récupérer le code d'un autre</h4>
+						<h4>Partagez votre code</h4>
 						
 						<br />
 						<div style="text-align: left;">
