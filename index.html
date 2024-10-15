@@ -44,7 +44,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-transition="none">
 					<h1>GIT</h1>
 					<h3>Logiciel de gestion de versions décentralisé</h3>
 					<p>
@@ -58,7 +58,7 @@
 					<code style="font-size: 10pt !important;">$&nbsp;git clone https://src.koda.cnrs.fr/laurent.vanni.2/formationgit.git&nbsp;</code>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<h3>Le quotidien du développeur seul</h3>				
 					<img class="normal-image" src="img/seul.png" />
 					<div style="text-align: left;">
@@ -70,7 +70,7 @@
 					</div>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<h3>Le quotidien du développeur en équipe</h3>					
 					<img class="normal-image" src="img/plusieurs.png" />
 					<div style="text-align: left;">
@@ -84,7 +84,7 @@
 
 				</section>
 
-				<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+				<section data-transition="none">
 					<h2>Un gestionnaire de version</h2>
 					<h3><a onclick="$('#aquoicasert').fadeToggle();">À quoi ça sert ?</a></h3>
 					<br />
@@ -96,7 +96,7 @@
 					</div>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<section>
 						<h3>Les gestionnaires de versions</h3>		
 						<h4>Petit tour d'horizon</h4>						
@@ -198,7 +198,7 @@
 								<li>L'interface console évoluée</li>
 								<li>Les algorithmes de fusion</li>
 								<li>La rapidité</li>
-								<li>Large communauté : Des sites collaboratifs comme <span class="hightlight">GitHub</span></li>
+								<li>Large communauté, exemples : <span class="hightlight">GitHub</span> et  <span class="hightlight">GitLab</span></li>
 							</ul>
 						</div>
 						<br />
@@ -217,11 +217,11 @@
 
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<h3>C'est parti pour GIT ?</h3>
 				</section>
 
-				<section>
+				<section data-transition="none">
 					<h3>Premiers pas avec GIT</h3>		
 					<h4>Installation</h4>
 					
@@ -255,7 +255,7 @@
 	
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<section>
 						<h3>Configuration</h3>		
 						<h4>Identifiez-vous</h4>
@@ -270,9 +270,32 @@
 							<ul>
 								<li><code>$&nbsp;git config --global user.email moi@email.com&nbsp;</code></li>
 							</ul>
-						</div>
+						</div>		
+					</section>
+
+					<section>
+						<h3>Configuration</h3>		
+						<h4>Identifiez-vous 2</h4>
 						
-		
+						<div style="text-align: left;">
+							<p>Acces remote par https (automatisation par accesstoken)</p>
+							<ul>
+								<li><code>$&nbsp;git config --global --add credential.helper "store --file ~/.git-credentials"&nbsp;</code></li>
+								<li><code>$&nbsp;vi ~/.git-credentials&nbsp;</code>
+									<ul>
+										https://votre_login:votre_jeton@mygithost.fr
+									</ul>
+								</li>
+								<li><code>$&nbsp;chmod 0600 ~/.git-credentials&nbsp;</code></li>
+							</ul>
+							<br /><br />
+							<p>Pour voir la config actuelle et la supprimer</p>
+							<ul>
+								<li><code>$&nbsp;git config --global --get-all credential.helper&nbsp;</code></li>
+								<li><code>$&nbsp;git config --unset credential.helper&nbsp;</code></li>
+								<li><code>$&nbsp;git credential-cache exit&nbsp;</code></li>
+							</ul>
+						</div>		
 					</section>
 					
 					<section>
@@ -345,11 +368,11 @@
 					</section>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<h3>On code ?</h3>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<section>
 						<h3>Premières commandes</h3>
 						<h4>Initialisation d'un projet</h4>
@@ -424,7 +447,7 @@
 						</div>
 					</section>
 					
-					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+					<section>
 						<h3>Permières commandes</h3>
 						<h4>Quel est l'<a onclick="$('#status').fadeToggle();">état de mon projet</a> maintenant ?</h4>
 						<br /><br /><br /><br />
@@ -476,7 +499,7 @@ temp* 		# ignorer tous les fichiers commençant par temp
 						</div>
 					</section>
 					
-					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+					<section>
 						<h3>Permières commandes</h3>
 						<h4>Quel est l'<a onclick="$('#status2').fadeToggle();">état de mon projet</a> maintenant ?</h4>
 						<br /><br /><br /><br />
@@ -552,7 +575,7 @@ L.V.
 						</div>
 					</section>
 					
-					<section data-background="img/Point-dinterrogation.png" data-background-repeat="repeat" data-background-size="100px">
+					<section>
 						<h3>Permières commandes</h3>
 						<h4>Quel est l'<a onclick="$('.status3').fadeToggle();">état de mon projet</a> maintenant ?</h4>
 						<br /><br /><br /><br /><br /><br />
@@ -613,7 +636,7 @@ L.V.
 					
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<h3>Le quotidien du développeur seul</h3>
 					<h4>Ça s'améliore...</h4>
 					<img class="normal-image" src="img/seul.png" />
@@ -626,11 +649,11 @@ L.V.
 				</section>
 				
 				
-				<section>
+				<section data-transition="none">
 					<h3>GIT et l'historique des modifications</h3>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<section>
 						<h3>Git : système de fichier adressables par contenu</h3>
 						<h4>base de données clé/valeur</h4>
@@ -720,12 +743,12 @@ L.V.
 				</section>
 				
 		
-				<section>
+				<section data-transition="none">
 					<h3>Les branches</h3>
 					<h4>Une des pricipales raisons de passer à GIT</h4>
 				</section>
 				
-				<section>
+				<section data-transition="none">
 					<section>
 						<h3>Pourquoi utiliser des branches</h3>
 						<h4>À quel moment j'ai besoin de créer différentes branches</h4>
@@ -882,7 +905,7 @@ L.V.
 					
 				</section>
 				
-				<section>	
+				<section data-transition="none">	
 					<section>
 						<h3>Gestion des conflits</h3>
 						<h4><span class="hightlight">Automatique</span>, sinon manuel dans une branche virtuelle</h4>
